@@ -51,7 +51,9 @@ Note:
 **Branch Model**
 		       
 ![Branch Model](https://raw.githubusercontent.com/ankithg03/Inventrix/master/assets/feature-branch-with-develop-git-workflow-2.png)
-	
+
+
+![Branch Model](https://raw.githubusercontent.com/ankithg03/Inventrix/master/assets/GitFlow-git-workflow-2.png)	
 
 8. **git diff**: This command is to check the difference between the current code and previous commit.
 		       
