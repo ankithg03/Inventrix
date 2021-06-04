@@ -35,7 +35,7 @@
     bash ./appSetup.sh
 
 ## Git Commands
-1. **git init**: for creating a new repo and linking it with an empty repository.
+1. **git init**: for linking your folder with an empty repository.
 
 	    git init
 2. **git clone**: for using the exiting repository and working on it.
@@ -87,7 +87,9 @@ Note:
 **Branch Model**
 		       
 ![Branch Model](https://raw.githubusercontent.com/ankithg03/Inventrix/master/assets/feature-branch-with-develop-git-workflow-2.png)
-	
+
+
+![Branch Model](https://raw.githubusercontent.com/ankithg03/Inventrix/master/assets/GitFlow-git-workflow-2.png)	
 
 8. **git diff**: This command is to check the difference between the current code and previous commit.
 		       
@@ -111,5 +113,3 @@ Note: Some other important commands such as git reset, git stash, git rebase are
 2. [Stash](https://git-scm.com/docs/git-stash) 
 3. [Reset](https://git-scm.com/docs/git-reset)
 	  
-      
-
