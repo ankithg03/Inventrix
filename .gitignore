@@ -48,3 +48,9 @@ Thumbs.db
 *.mov
 *.wmv
 
+bootstrap.php
+autoload.php
+functions.php
+.htaccess
+etc
+
