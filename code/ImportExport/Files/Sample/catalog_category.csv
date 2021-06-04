@@ -1,5 +1,0 @@
-name,store_id,parent,is_active,include_in_menu,description,display_mode,is_anchor,url_key,meta_title,meta_keywords,meta_description,image
-Lamiacia,0,,1,1,"<p><img src=""{{media url=""wysiwyg/img-01.png""}}"" width=""1198"" height=""368"" />This is Lamiacia description</p>",PRODUCTS,1,lamiacia,Meta Title,Meta Keywords,Meta Description,https://domain.com/images/myimage.png
-Pink Category,0,2,1,1,"<p><img src=""{{media url=""wysiwyg/img-02.png""}}"" width=""1198"" height=""368"" />This is Pink Category description</p>",PRODUCTS,1,pink category,Meta Title,Meta Keywords,Meta Description,https://domain.com/images/myimage.png
-White Snow Category,0,2,1,1,"<p><img src=""{{media url=""wysiwyg/img-03.png""}}"" width=""1198"" height=""368"" />This is white snow category description</p>",PRODUCTS,1,white category,Meta Title,Meta Keywords,Meta Description,https://domain.com/images/myimage.png
-Tiger Eye Category,0,2,1,1,<h1>This is tiger eye category description</h1>,PRODUCTS,1,tiger eye,Meta Title,Meta Keywords,Meta Description,https://domain.com/images/myimage.png
