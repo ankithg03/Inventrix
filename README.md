@@ -86,7 +86,7 @@ Note:
 
 **Branch Model**
 		       
-![enter image description here](https://lh3.google.com/u/0/d/10oJPdr6RZUjhQ7b8GcODSaQduLxeZdR_=w1353-h981-iv1)
+![Branch Model](https://raw.githubusercontent.com/ankithg03/Inventrix/master/assets/feature-branch-with-develop-git-workflow-2.png)
 	
 
 8. **git diff**: This command is to check the difference between the current code and previous commit.
