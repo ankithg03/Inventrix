@@ -1,0 +1,24 @@
+{
+    "name": "dhruvi/module-hello-world",
+    "description": "Custom Product Rule Page",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "email": "dhruvi.b@codilar.com",
+            "name": "Dhruvi Ben Shah"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+ 
+   "autoload": {
+        "psr-4": {
+            "Dhruvi\\HelloWorld\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

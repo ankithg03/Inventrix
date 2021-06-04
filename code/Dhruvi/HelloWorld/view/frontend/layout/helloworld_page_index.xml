@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<body>
+    <referenceContainer name="content">
+        <block class="Dhruvi\HelloWorld\Block\Helloworld" name="helloworld_page_index"  template="Dhruvi_HelloWorld::helloworld.phtml"/>
+
+        </referenceContainer>
+</body>    
+</page>
