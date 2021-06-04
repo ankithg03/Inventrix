@@ -1,5 +1,5 @@
 ## Git Commands
-1. **git init**: for creating a new repo and linking it with an empty repository.
+1. **git init**: for linking your folder with an empty repository.
 
 	    git init
 2. **git clone**: for using the exiting repository and working on it.
