@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "moving the folder from app to appbkup"
+echo "====================================>"
+mv app appbkup
+echo "done"
