@@ -1,0 +1,23 @@
+{
+    "name": "nexpwa/module-catalog-rule-page",
+    "description": "Custom Product Rule Page",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "email": "ankith@codilar.com",
+            "name": "Ankith G"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "NexPWA\\CatalogRulePage\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}
