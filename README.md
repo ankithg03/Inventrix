@@ -11,7 +11,7 @@
 
 **Clone Repo**
 
-    git clone https://ankithg03@bitbucket.org/ankithg03/inventrix.git app
+    git clone https://github.com/ankithg03/Inventrix.git app
     
 **change into app folder**
 
