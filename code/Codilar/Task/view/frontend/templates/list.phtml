@@ -1,0 +1,5 @@
+<?php
+$collection = $block->getProductCollection();
+foreach ($collection as $_product) {
+    echo $product->getName() . ' - ' . $product->getProductUrl() . '<br />';
+}
