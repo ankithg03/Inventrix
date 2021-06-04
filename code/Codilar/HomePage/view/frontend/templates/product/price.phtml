@@ -1,0 +1,52 @@
+<?php
+$priceModel = $block->getPriceType('regular_price');
+$finalPriceModel = $block->getPriceType('final_price');
+$idSuffix = $block->getIdSuffix() ? $block->getIdSuffix() : '';
+$schema = ($block->getZone() == 'item_view') ? true : false;
+?>
+<?php if ($block->hasSpecialPrice()): ?>
+ <span class="special-price">
+        <?php  echo $block->renderAmount($finalPriceModel->getAmount(), [
+            'display_label' => __('Special Price'),
+            'price_id'       => $block->getPriceId('product-price-' . $idSuffix),
+    	    'price_type'     => 'finalPrice',
+            'include_container' => true,
+            'schema' => $schema
+     ]); ?>
+    </span>
+ <span>
+ <?php
+ $item = $block->getSaleableItem();
+    $_savePercent = 100 - round(((float)$item->getFinalPrice() / (float)$item->getPrice()) * 100);
+ echo '<b style="color:#008000">'.$_savePercent . '% off </b>';
+ ?>
+    </span>
+ <span class="old-price">
+        <?php  echo $block->renderAmount($priceModel->getAmount(), [
+         'display_label' => __('Regular Price'),
+            'price_id'       => $block->getPriceId('old-price-' . $idSuffix),
+            'price_type'     => 'oldPrice',
+            'include_container' => true,
+            'skip_adjustments'  => true
+     ]); ?>
+    </span>
+<?php else: ?>
+    <?php  echo $block->renderAmount($finalPriceModel->getAmount(), [
+        'price_id'       => $block->getPriceId('product-price-' . $idSuffix),
+        'price_type'     => 'finalPrice',
+        'include_container' => true,
+     'schema' => $schema
+ ]); ?>
+<?php endif; ?>
+ 
+<?php if ($block->showMinimalPrice()): ?>
+ <?php if ($block->getUseLinkForAsLowAs()):?>
+     <a href="<?=  $block->getSaleableItem()->getProductUrl() ?>" class="minimal-price-link">
+            <?= $block->renderAmountMinimal() ?>
+        </a>
+ <?php else:?>
+     <span class="minimal-price-link">
+            <?=  $block->renderAmountMinimal() ?>
+        </span>
+ <?php endif?>
+<?php endif; ?>

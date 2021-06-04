@@ -1,0 +1,9 @@
+<?php
+$blockObj = $block->getLayout()->createBlock('Magento\Catalog\Block\Product\Price');
+ $_product = $blockObj->getProduct();
+    $specialprice = $_product->getSpecialPrice();
+       $price = $_product->getPrice();
+    if ($price) {
+       echo $sale = round(abs((($price-$specialprice)/$price)*100));
+    }
+    ?>
