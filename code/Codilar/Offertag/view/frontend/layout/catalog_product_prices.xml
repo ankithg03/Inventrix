@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page layout="lcolumn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <body>
+    <referenceContainer name="content">
+    <referenceBlock name="render.product.prices">
+    <block class="Magento\Catalog\Block\Product\View\Options\Type\DefaultType" name="product.info.options.default" as="default" template="Magento_Catalog::product/view/options/type/default.phtml"/>
+        <arguments>
+            <argument name="default" xsi:type="array">
+                <item name="prices" xsi:type="array">
+                <item name="final_price" xsi:type="array">
+                    <item name="render_class" xsi:type="string">Magento\Catalog\Pricing\Render\FinalPriceBox</item>
+                    <item name="render_template" xsi:type="string">Codilar_Offertag::product/price/final_price.phtml</item>
+                </item>
+                </item>
+            </argument>
+        </arguments>
+        </block>
+    </referenceBlock>
+    </referenceContainer>
+    </body>
+</page>
