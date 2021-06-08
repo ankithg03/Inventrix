@@ -1,0 +1,41 @@
+<?php
+/**
+ * @var $block \Codilar\Books\Block\Display
+ */
+
+$books = $block->getAllBooks();
+?>
+<?php if (count($books) > 0): ?>
+    <table border="1">
+        <tr>
+            <th><?= __("ID") ?></th>
+            <th><?= __("Name") ?></th>
+            <th><?= __("Author") ?></th>
+            <th><?= __("Edit/Delete") ?></th>
+        </tr>
+        <?php foreach ($books as $book): ?>
+            <tr>
+                <td><?= $book->getId() ?></td>
+                <td><?= $book->getName() ?></td>
+                <td><?= $book->getAuthor() ?></td>
+                <td><a href="<?= $block->getEditPageUrl()?>">Edit </a><a href="<?= $block->getDeleteUrl()?>">Delete</a></td><!-- todo Add the functionality of Edit and Delete Hero -->
+            </tr>
+        <?php endforeach; ?>
+    </table>
+<?php else: ?>
+    <h1 style="color: red"><?= __("No book details yet :(") ?></h1>
+<?php endif; ?>
+<hr />
+<form method="post" action="<?= $block->getPostUrl() ?>">
+    <fieldset style="margin: 0 auto; width: 50%">
+        <div>
+            <label for="name"><?= __("Name") ?></label>
+            <input type="text" name="name"/>
+        </div>
+        <div>
+            <label for="author"><?= __("Author") ?></label>
+            <input type="text" name="author"/>
+        </div>
+        <input type="submit" value="<?= __("Add Book") ?>" />
+    </fieldset>
+</form>
