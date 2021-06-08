@@ -1,0 +1,35 @@
+<?php
+
+$firearms = $block->getAllFirearms();
+if(count($firearms)>0):?>
+<table border="1">
+    <tr>
+        <th><?= "ID" ?></th>
+        <th><?= "NAME" ?></th>
+        <th><?= "TYPE" ?></th>
+    </tr>
+    <?php foreach($firearms as $firearm): ?>
+        <tr>
+            <td><?= $firearm->getId() ?></td>
+            <td><?= $firearm->getName() ?></td>
+            <td><?= $firearm->getType() ?></td>
+        </tr>
+        <?php endforeach; ?>
+</table>
+<?php else: ?>
+<h1> Firearms and Details...! </h1>
+<?php endif; ?>
+<hr/>
+<form action="<?= $block->getPostUrl() ?>" method="POST">
+<fieldset>
+<div>
+<label for="name">Name : </label>
+<input type="text" name="name"/>
+</div>
+<div>
+<label for="type">Type : </label>
+<input type="text" name="type"/>
+</div>
+<input type="submit" name="submit" value="submit"/>
+</fieldset>
+</form>
