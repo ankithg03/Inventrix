@@ -8,13 +8,11 @@ use Magento\Framework\Model\ResourceModel\Db\AbstractDb;
 
 class Employee extends AbstractDb
 {
-    const MAIN_TABLE = 'employee_list';
-    /**
-     * @var string Primarykey
-     */
-    protected $_idFieldName  = 'id';
+    const MAIN_TABLE = 'Employee_Details';
+    const ID_FIELD_NAME = 'id';
+
     protected function _construct()
     {
-        $this->_init(self::MAIN_TABLE, $this->$_idFieldName );
+        $this->_init(self::MAIN_TABLE, self::ID_FIELD_NAME);
     }
 }

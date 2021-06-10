@@ -2,57 +2,122 @@
 
 namespace Codilar\Employee\Model;
 
-use Codilar\Employee\Model\EmployeeFactory as ModelFactory;
-use Codilar\Employee\Model\Employee as Model;
 use Codilar\Employee\Model\ResourceModel\Employee as ResourceModel;
+use Codilar\Employee\Model\ResourceModel\Employee\Collection;
+use Codilar\Employee\Model\ResourceModel\Employee\CollectionFactory;
+use Codilar\Employee\Model\Employee as Model;
+use Codilar\Employee\Model\EmployeeFactory as ModelFactory;
+use Magento\Framework\Exception\AlreadyExistsException;
 
 class EmployeeManagement
 {
-    #add=>database=>Model,ResourceModel,Collection
-    /**
-     * @var \Codilar\Employee\Model\EmployeeFactory
-     */
-    private $employeeFactory
     /**
      * @var ResourceModel
      */
     private $resourceModel;
+    /**
+     * @var EmployeeFactory
+     */
+    private $modelFactory;
+    /**
+     * @var CollectionFactory
+     */
+    private $collectionFactory;
 
     /**
-     * EmployeeManagement constructor
-     * @param EmployeeFactory $modelfactory
+     * EmployeeManagement constructor.
      * @param ResourceModel $resourceModel
+     * @param EmployeeFactory $modelFactory
+     * @param CollectionFactory $collectionFactory
      */
     public function __construct(
-      ModelFactory $modelfactory,
-      ResourceModel $resourceModel
+        ResourceModel $resourceModel,
+        ModelFactory $modelFactory,
+        CollectionFactory $collectionFactory
     ) {
-         $this->modelfactory =$modelfactory;
-         $this->resourceModel =$resourceModel;
+        $this->resourceModel = $resourceModel;
+        $this->modelFactory = $modelFactory;
+        $this->collectionFactory = $collectionFactory;
     }
-    public function save($name,$companyname)
-    {
-        $employeeModel=$this->create();
-        if(is_array($data))
-        {
-           $employeeModel->setData($data);
-           try{
-               $this->resourceModel->save($employeeModel);
-               return true;
-           }
-           catch(\Exception $exception)
-           {
 
-           }
-        }
-        return false;
-    }
-    public function  create()
+    /**
+     * @param $dataInArray
+     * @return array
+     */
+    public function save($dataInArray)
     {
         /**
          * @var $model Model
          */
-        $model =$this->modelfactory->create();
+        $model = $this->create();
+        $model->setData($dataInArray);
+        try {
+            $this->resourceModel->save($model);
+            return [
+                'message'=>'Employee Added Successfully',
+                'status'=>false
+            ];
+        } catch (AlreadyExistsException $e) {
+            return [
+                'message'=>'Employee with same data already Exist',
+                'status'=>false
+            ];
+        } catch (\Exception $e) {
+            return [
+                'message'=>'Something went wrong!, please contact admin',
+                'status'=>false
+            ];
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public function getData()
+    {
+        return $this->collectionFactory->create()->getData();
+    }
+
+    /**
+     * @param $id
+     * @return bool
+     */
+    public function deleteById($id)
+    {
+        try {
+            $model = $this->load($id);
+            $this->resourceModel->delete($model);
+            return true;
+        } catch (\Exception  $e) {
+            return false;
+        }
+    }
+
+    /**
+     * @param $id
+     * @param null $field
+     * @return Employee
+     */
+    public function load($id, $field=null)
+    {
+        $model = $this->create();
+        $this->resourceModel->load($model, $id, $field);
         return $model;
+    }
+
+    /**
+     * @return Model
+     */
+    public function create()
+    {
+        return $this->modelFactory->create();
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getCollection()
+    {
+        return $this->collectionFactory->create();
     }
 }

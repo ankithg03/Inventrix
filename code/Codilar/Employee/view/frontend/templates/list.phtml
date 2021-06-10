@@ -1,16 +1,86 @@
 <?php
-
 /**
-* @var  $block  Employeeinfo
+ * @var $block Display
  */
+$employees = $block->getAllEmployee();
 
-use Codilar\Employee\Block\EmployeeiInfo;
+use Codilar\Employee\Block\Display;
+
 ?>
+<style>
+    :root {
+        --placeholder-image: linear-gradient(to right, rgba(0, 0, 0, .08) 0, rgba(0, 0, 0, .15) 15%, rgba(0, 0, 0, .08) 30%);
+        --placeholder-size: 1200px 100%;
+        --placeholder-animation: placeholderAnimation 2s linear infinite;
+        --primary-divider-color: #f0f0f0;
+    }
+    }
+    .loader {
 
+        animation: var(--placeholder-animation);
+        background-image: var(--placeholder-image);
+        background-size: var(--placeholder-size);
+        height: var(--option-size);
+        width: var(--option-size);
+    }
 
-<h1>
+    .loader {
+        min-height: 100%;
+        min-width: 200px;
+        animation: var(--placeholder-animation);
+        background-image: var(--placeholder-image);
+        background-size: var(--placeholder-size);
+        height: var(--option-size);
+        width: var(--option-size);
+    }
+</style>
 
-    <?= $block-> getEmployeeName() ?>
+<table border="1" id="employee" class="loader">
 
+</table>
 
-</h1>
+<hr/>
+<form action="<?=$block->getPostUrl()?>" method="POST">
+<fieldset>
+<div>
+<label for="name">Name : </label>
+<input type="text" name="name"/>
+</div>
+<div>
+<label for="dob">DOB : </label>
+<input type="date" name="dob"/>
+</div>
+<div>
+<label for="email">Email : </label>
+<input type="email" name="email"/>
+</div>
+<div>
+<label for="address">Address : </label>
+<input type="text" name="address"/>
+</div>
+<div>
+<label for="image">Image : </label>
+<input type="file" name="image"/>
+</div>
+<input type="submit" name="submit" value="submit"/>
+</fieldset>
+</form>
+
+<script>
+    function getEmployee() {
+        fetch("<?=$block->getUrl('employee/employee/get')?>").then(response => response.json().then(
+            jsonResponse =>{
+               let tableData = JSON.parse(jsonResponse);
+               const tableDOM = document.getElementById('employee');
+                tableDOM.innerHTML = "<tr><th>ID</th><th>Name</th><th>DOB</th><th>Email</th><th>Address</th><th>Profile Pic</th><th>Action</th></tr>";
+                tableDOM.className="";
+                for(i=0;i<tableData.length;i++) {
+                    let tr = document.createElement('tr');
+                    tr.innerHTML = '<th>'+tableData[i].id+'</th><th>'+tableData[i].name+'</th><th>'+tableData[i].dob+'</th><th>'+tableData[i].email+'</th><th>'+tableData[i].address+'</th><th>'+tableData[i].image+'</th>';
+                    tableDOM.appendChild(tr);
+                }
+            }
+        ))
+    }
+    getEmployee();
+</script>
