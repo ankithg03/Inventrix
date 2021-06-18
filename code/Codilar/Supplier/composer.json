@@ -1,0 +1,24 @@
+{
+    "name": "codilar/module-supplier-extension",
+    "description": "A magento 2 module to have suppliers for products",
+    "type": "magento2-module",
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "~7.1.3||~7.2.0||~7.3.0|~7.4.*"
+    },
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Codilar\\Supplier\\": ""
+        }
+    },
+    "version": "1.0.0"
+}

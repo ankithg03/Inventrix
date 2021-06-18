@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page layout="lcolumn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <body>
+    <referenceContainer name="content">
+          
+           
+           <referenceContainer name="product.info.form.content" >
+           <block class="Codilar\Supplier\Block\Supplier" name="supplier" before="-" template="Codilar_Supplier::supplier_attribute.phtml">
+
+           </block>
+ 
+
+    </referenceContainer>
+
+
+           
+    </referenceContainer>
+    </body>
+</page>

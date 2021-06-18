@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * supplier_info_index.xml
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="styles"/>
+    <body>
+        <referenceContainer name="content">
+            <uiComponent name="supplier_listing_ui"/>
+        </referenceContainer>
+    </body>
+</page>
+
