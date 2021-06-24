@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<page layout="lcolumn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+
+
+    <body>
+        <referenceContainer name="content">
+           <referenceContainer name="product.info.main" >
+              <block class="Codilar\OutStock\Block\Config" name="product.info.enquiry" after="product.info.addtocart"
+                     template="Codilar_OutStock::outstock_attribute.phtml">
+                 </block>
+
+
+          </referenceContainer>
+
+    </referenceContainer>
+    </body>
+s
+</page>
+
