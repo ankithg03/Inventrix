@@ -64,7 +64,6 @@
 		
 		syntax: 
 		       git branch #shows list of branch present
-		       git branch -D <branch-name> #deletes the branch
 7. **git checkout**: This command is to switch and create the branches
 		       
        syntax: 
@@ -78,7 +77,10 @@
 Note: 
 **Why do we require branch model?**
 
-		 
+**git branch**	
+```
+ git branch -D <branch-name> #deletes the branch
+```
 
 > Lets assume you are writing a code, for a feature called mobile login, initially the requirement would be for mobile login for all the country. you wrote code by considering all the country code, you may have finished 80% of work, later client says we are  just releasing this phase in India so lets finish it fast only do it for India. So you have to remove 40% code and make changes, tomorrow the client says they decided to release in all the country so they require the feature, so you would have to rework and build it.
 
